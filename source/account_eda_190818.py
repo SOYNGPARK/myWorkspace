@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Aug 14 13:31:50 2019
+Created on Sun Aug 18 21:23:17 2019
 
 @author: soug9
 """
@@ -41,7 +41,7 @@ def create_calendar(out, year, month) :
 
 def seaborn(df, month) :
  
-    cmap = eval(season_cmap(month_type(month))) 
+    cmap = sns.light_palette((210, 90, 60), as_cmap=True, input="husl")
 
     undercol = 'grey'
     overcol = 'red'
@@ -54,20 +54,20 @@ def seaborn(df, month) :
     plt.figure(figsize=(20, 20))
     plt.show() 
 
-def season_cmap(num) :
-    season_cmap_dic = {0 : 'sns.cubehelix_palette(as_cmap=True, light=.9)', #winter
-            1 :'ListedColormap(sns.color_palette("spring_r", 256))',
-            2 : 'sns.light_palette((210, 90, 60), as_cmap=True, input="husl")' #summer
-            } 
+#def season_cmap(num) :
+#    season_cmap_dic = {0 : 'sns.cubehelix_palette(as_cmap=True, light=.9)', #winter
+#            1 :'ListedColormap(sns.color_palette("spring_r", 256))',
+#            2 : 'sns.light_palette((210, 90, 60), as_cmap=True, input="husl")' #summer
+#            } 
+#
+#    return season_cmap_dic.get(num, 'sns.cubehelix_palette(as_cmap=True, light=.9)')
 
-    return season_cmap_dic.get(num, 'sns.cubehelix_palette(as_cmap=True, light=.9)')
-
-def month_type(month) :
-    month_type_dic = {12 : 0, 1 : 0, 2 : 0, 
-                  3 : 1, 4 : 1, 5 : 1,
-                  6 : 2, 7 : 2, 8 : 2, 
-                  9 : 3, 10 : 3, 11: 3}
-    return month_type_dic.get(month, 0)
+#def month_type(month) :
+#    month_type_dic = {12 : 0, 1 : 0, 2 : 0, 
+#                  3 : 1, 4 : 1, 5 : 1,
+#                  6 : 2, 7 : 2, 8 : 2, 
+#                  9 : 3, 10 : 3, 11: 3}
+#    return month_type_dic.get(month, 0)
 
 def month_name(month) :
     month_name_dic = {12 : 'Dec', 
